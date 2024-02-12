@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Батырбекова Адиля</title>
+    <meta charset="utf-8" />
+  </head>
+  <body>
+    <h4>adilya</h4>
+
+    <input type="number" value="2" id="n1" size="2" />x +
+    <input type="number" value="3" id="n2" size="2" />y =
+    <input type="number" value="18" id="n3" size="2" />
+    <br />
+
+    <input type="number" value="4" id="n4" size="2" />x +
+    <input type="number" value="-5" id="n5" size="2" />y =
+    <input type="number" value="-8" id="n6" size="2" />
+    <br />
+
+    x = <input id="result1" size="2" />
+    y = <input id="result2" size="2" />
+    <button
+      id="bt"
+      onclick="
+                                 
+     
+      /* извлечение данных */  
+      const n1 = Number(document.querySelector('#n1').value);
+      const n2 = Number(document.querySelector('#n2').value);
+      const n3 = Number(document.querySelector('#n3').value);
+      const n4 = Number(document.querySelector('#n4').value); 
+      const n5 = Number(document.querySelector('#n5').value);
+      const n6 = Number(document.querySelector('#n6').value);  
+       
+      document.querySelector('#result1').value =((n1 * n6 - n3 * n4) / (n1 * n5 - n2 * n4));
+      document.querySelector('#result2').value =((n3 * n5 - n2 * n6) / (n1 * n5 - n2 * n4));
+                                                               
+    "
+    >
+      Выполнить задание
+    </button>
+  </body>
+</html>
