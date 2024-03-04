@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Prime Count</title>
+  </head>
+  <body>
+    <h4 id="author" title="adilja">adilya</h4>
+    <script>
+      function countPrimes(n) {
+        let primes = [];
+        for (let i = 2; i <= n; i++) {
+          let isPrime = true;
+          for (let j = 2; j <= Math.sqrt(i); j++) {
+            if (i % j === 0) {
+              isPrime = false;
+              break;
+            }
+          }
+          if (isPrime) primes.push(i);
+        }
+        return primes.length;
+      }
+
+      const number = Number(window.location.search.slice(1));
+      if (number && !isNaN(number)) {
+        document.title = String(countPrimes(parseInt(number)));
+      }
+    </script>
+  </body>
+</html>
