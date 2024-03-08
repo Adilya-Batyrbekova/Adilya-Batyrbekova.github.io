@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+
+<head>
+  <title>Prime Count</title>
+</head>
+
+<body>
+  <h4>leo4135</h4>
+
+  <script>
+
+
+    const urlParse = window.location.search.replace(/[A-Z?=]/g, "").split('&');
+
+    function parkinson(x, y) {
+      const arrayX = x.split(',');
+      const arrayY = y.split(',');
+      const averageX = getAverage(arrayX)
+      const averageY = getAverage(arrayY)
+      const numerator = arrayX.length == arrayY.length ? (() => {
+        let summ = 0;
+        arrayX.forEach((item, index) => {
+          summ += (item - averageX) * (arrayY[index] - averageY);
+        })
+        return summ;
+      })() : (() => {
+        return 'Arrays is not equal to length'
+      })()
+
+      const denominator = arrayX.length == arrayY.length ? (() => {
+        let summ = 0, summX = 0, summY = 0;
+        arrayX.forEach((item, index) => {
+          summX += Math.pow((item - averageX), 2);
+          summY += Math.pow((arrayY[index] - averageY), 2);
+        })
+        return summ = Math.sqrt(summX) * Math.sqrt(summY);
+
+      })() : (() => {
+        return 'Arrays is not equal to length'
+      })()
+      window.document.title = (numerator / denominator).toFixed(3)
+    }
+
+    function getAverage(array) {
+      return (array.reduce((first, last) => {
+        return parseInt(first) + parseInt(last);
+      })) / array.length;
+    }
+
+
+    parkinson(urlParse[0], urlParse[1]);
+  </script>
+
+</body>
+
+</html>
